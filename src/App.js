@@ -55,7 +55,7 @@ this.setState({
   errorInputmsg : '404 error',
   displayErrorMsg:true
 })}
-let apiURl = `${server}/wether`// sending request for api 
+let apiURl = `${server}/wetherForCast?searchQuery=${userInput}`// sending request for api 
     try{
     let whetherCast = await axios.get(apiURl)
     this.setState({
@@ -83,7 +83,9 @@ let apiURl = `${server}/wether`// sending request for api
           <input type ='text' name="userinput" />
           <input type ='submit' value="explore"/>
         </form>
-        <h1>{this.state.wether}</h1>
+        <h1>{this.state.wether.city_name}</h1>
+        <h1>{this.state.wether.lon}</h1>
+        <h1>{this.state.wether.lat}</h1>
         <h3> {this.state.cityData.display_name}</h3> 
         <h3> {this.state.cityData.lat}</h3>
         <h3> {this.state.cityData.lon}</h3>
